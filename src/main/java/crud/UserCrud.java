@@ -74,10 +74,8 @@ public class UserCrud {
 
     public static List<UsersEntity> getAllUsers() {
         List<UsersEntity> users = new ArrayList<>();
-        Transaction tx = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            tx = session.beginTransaction();
             users = session.createCriteria(UsersEntity.class).list();
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -90,10 +88,8 @@ public class UserCrud {
 
     public static UsersEntity getUser(int id) {
         UsersEntity user = null;
-        Transaction tx = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            tx = session.beginTransaction();
             String queryString = "from UsersEntity where id = :id";
             Query query = session.createQuery(queryString);
             query.setInteger("id", id);

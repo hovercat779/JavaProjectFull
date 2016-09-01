@@ -31,10 +31,10 @@ public class LoginServlet extends HttpServlet {
                 List<UsersEntity> userList;
                 userList = UserCrud.getAllUsers();
                 req.setAttribute("users", userList);
-                req.getRequestDispatcher("table.jsp").forward(req, resp);
+                req.getRequestDispatcher("admin.jsp").forward(req, resp);
             } else {
                 req.setAttribute("user", user);
-                req.getRequestDispatcher("loginCheck.jsp").forward(req, resp);
+                req.getRequestDispatcher("profile.jsp").forward(req, resp);
             }
         }
     }

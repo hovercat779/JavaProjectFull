@@ -12,20 +12,16 @@
     <title>Welcome Page</title>
 </head>
 <body>
-Hello, username!
+Hello!
 
-<form action="<c:url value='/loginCheck'/>" method="post">
+<form action="<c:url value='/profile'/>" method="post">
     Login: <input type="text" name="login" value=""/><br>
     Pass: <input type="password" name="password" value=""/><br>
     <input type="submit" value="submit"/>
 </form>
 
-<form action="<c:url value='/registration'/>" method="post">
+<form action="<c:url value='/registration.jsp'/>" method="post">
     <input type="submit" value="registration"/>
-</form>
-
-<form action="<c:url value='/table'/>" method="post">
-    <input type="submit" value="List of users"/>
 </form>
 
 </body>

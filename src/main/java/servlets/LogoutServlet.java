@@ -1,19 +1,18 @@
 package servlets;
 
-import crud.UserCrud;
-import entities.UsersEntity;
-
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
+
+import static java.lang.System.out;
 
 /**
- * Created by hovercat on 15.08.16.
+ * Created by hovercat on 26.08.16.
  */
-public class TableServlet extends javax.servlet.http.HttpServlet {
-
+public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
@@ -21,10 +20,13 @@ public class TableServlet extends javax.servlet.http.HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<UsersEntity> userList;
-        userList = UserCrud.getAllUsers();
-        req.setAttribute("users", userList);
-        req.getRequestDispatcher("table.jsp").forward(req, resp);
 
+        HttpSession session = req.getSession();
+        session.invalidate();
+
+        out.print("You are successfully logged out!");
+        out.close();
+
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

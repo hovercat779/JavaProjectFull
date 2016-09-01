@@ -28,21 +28,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>loginCheck</servlet-name>
-        <servlet-class>servlets.LoginServlet</servlet-class>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>servlets.AdminServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>loginCheck</servlet-name>
-        <url-pattern>/loginCheck</url-pattern>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>table</servlet-name>
-        <servlet-class>servlets.TableServlet</servlet-class>
+        <servlet-name>profile</servlet-name>
+        <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>table</servlet-name>
-        <url-pattern>/table</url-pattern>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
 </web-app>

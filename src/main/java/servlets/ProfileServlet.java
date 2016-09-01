@@ -1,6 +1,5 @@
 package servlets;
 
-import crud.UserCrud;
 import entities.UsersEntity;
 
 import javax.servlet.ServletException;
@@ -10,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by hovercat on 24.08.16.
+ * Created by hovercat on 01.09.16.
  */
-public class RegistrationServlet extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,17 +20,8 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-//        req.getRequestDispatcher("registration.jsp").forward(req, resp);
-
         UsersEntity user = new UsersEntity();
-
-        user.setLogin(req.getParameter("login"));
-        user.setPassword(req.getParameter("password"));
-        user.setName(req.getParameter("name"));
-        user.setRole(req.getParameter("role"));
-
-        UserCrud.addUser(user);
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("profile.jsp").forward(req, resp);
     }
 }
