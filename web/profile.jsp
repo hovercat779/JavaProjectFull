@@ -13,7 +13,9 @@
 </head>
 <body>
 
-<td><c:out value="${user.getName()}"/></td>
+Hello, <c:out value="${user.getName()}"/>
+
+
 
 <form action="<c:url value='/index.jsp'/>" method="post">
     <input type="submit" value="back"/>

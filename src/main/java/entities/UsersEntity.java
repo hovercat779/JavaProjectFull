@@ -13,6 +13,7 @@ public class UsersEntity {
     private String password;
     private String name;
     private String role;
+    private String gender;
 
     @Id
     @Column(name = "id")
@@ -99,5 +100,15 @@ public class UsersEntity {
                 ", name='" + name + '\'' +
                 ", role='" + role + '\'' +
                 '}';
+    }
+
+    @Basic
+    @Column(name = "gender")
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

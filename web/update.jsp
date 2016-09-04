@@ -2,36 +2,31 @@
 <%--
   Created by IntelliJ IDEA.
   User: hovercat
-  Date: 24.08.16
-  Time: 13:41
+  Date: 01.09.16
+  Time: 13:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Registration page</title>
+    <title>Update page</title>
 </head>
 <body>
 
-<form action="<c:url value='/registration' />" method="post">
+<form action="<c:url value='/update' />" method="post">
 
-    Login: <input type="text" name="login" value=""/><br>
-    Password: <input type="password" name="password" value=""/><br>
-    Name: <input type="text" name="name" value=""/><br>
+    Password: <input type="text" name="password" value="${user.getPassword()}"/><br>
+    Name: <input type="text" name="name" value="${user.getName()}"/><br>
     Role: <select name="role">
     <option value="user">user</option>
     <option value="admin">admin</option>
-    </select><br>
+</select><br>
     Gender: <input type="radio" name=gender value="male"/>male
     <input type="radio" name=gender value="female"/>female<br>
 
+    <input type="hidden" name="id" value="${user.getId()}">
     <input type="submit" value="submit"/> <br>
-</form>
-
-<form action="<c:url value='/index.jsp'/>" method="post">
-    <input type="submit" value="back"/>
 </form>
 
 </body>
 </html>
-
