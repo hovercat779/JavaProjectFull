@@ -28,5 +28,9 @@
     <input type="submit" value="submit"/> <br>
 </form>
 
+<form action="<c:url value='/admin'/>" method="post">
+    <input type="submit" value="cancel"/>
+</form>
+
 </body>
 </html>

@@ -54,7 +54,4 @@ public class AdminServlet extends javax.servlet.http.HttpServlet {
         req.getRequestDispatcher("admin.jsp").forward(req, resp);
 
     }
-
-
 }
-

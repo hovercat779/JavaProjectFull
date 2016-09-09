@@ -2,9 +2,9 @@ package crud;
 
 import entities.UsersEntity;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import utils.HibernateUtil;
 
 import java.util.ArrayList;
@@ -87,13 +87,12 @@ public class UserCrud {
     }
 
     public static UsersEntity getUser(int id) {
+
         UsersEntity user = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String queryString = "from UsersEntity where id = :id";
-            Query query = session.createQuery(queryString);
-            query.setInteger("id", id);
-            user = (UsersEntity) query.uniqueResult();
+            user = (UsersEntity) session.createCriteria(UsersEntity.class).add(Restrictions.eq("id", id)).uniqueResult();
+
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
@@ -103,4 +102,21 @@ public class UserCrud {
         return user;
     }
 
+    public static UsersEntity loginCheck(String login) {
+
+        UsersEntity user = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            user = (UsersEntity) session.createCriteria(UsersEntity.class)
+                    .add(Restrictions.eq("login", login)).uniqueResult();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+
+        return user;
+    }
 }

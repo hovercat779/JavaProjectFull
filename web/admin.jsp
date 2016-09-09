@@ -25,16 +25,16 @@
             <td><c:out value="${user.getGender()}"/></td>
             <td>
                 <form action="<c:url value="/admin"/>" method="post">
-                    <input name="method" type="hidden" value="delete">
                     <input name="id" type="hidden" value="${user.getId()}">
                     <input type="submit" value="Delete"/>
+                    <input name="method" type="hidden" value="delete">
                 </form>
             </td>
             <td>
                 <form action="<c:url value="/admin"/>" method="post">
                     <input name="id" type="hidden" value="${user.getId()}">
-                    <input name="method" type="hidden" value="update">
                     <input type="submit" value="Update"/>
+                    <input name="method" type="hidden" value="update">
                 </form>
             </td>
         </tr>
@@ -43,7 +43,6 @@
 <br>
 
 <form action="<c:url value='/admin'/>" method="post">
-    <input name="method" type="hidden" value="add">
     Login: <input type="text" name="login" value="user"/><br>
     Password: <input type="password" name="password" value="1234"/><br>
     Name: <input type="text" name="name" value="Smith"/><br>
@@ -55,6 +54,7 @@
     <input type="radio" name=gender value="female"/>female<br>
 
     <input type="submit" value="Add new user"/> <br>
+    <input name="method" type="hidden" value="add">
 </form>
 <br>
 

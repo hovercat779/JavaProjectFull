@@ -2,7 +2,6 @@ package servlets;
 
 import crud.UserCrud;
 import entities.UsersEntity;
-import utils.UserUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +23,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UsersEntity user = UserUtils.loginCheck(req.getParameter("login"));
+        UsersEntity user = UserCrud.loginCheck(req.getParameter("login"));
 
         if (user.getPassword().equals(req.getParameter("password"))) {
             if (user.getRole().equals("admin")) {

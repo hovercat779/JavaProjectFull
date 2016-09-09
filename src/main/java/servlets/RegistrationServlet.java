@@ -21,7 +21,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        // TODO: 04.09.16 сделать проверку данных при регистрации
         UsersEntity user = new UsersEntity();
 
         user.setLogin(req.getParameter("login"));
@@ -31,6 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         user.setGender(req.getParameter("gender"));
 
         UserCrud.addUser(user);
+
         req.setAttribute("user", user);
         req.getRequestDispatcher("profile.jsp").forward(req, resp);
     }
